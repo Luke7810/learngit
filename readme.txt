@@ -17,3 +17,4 @@ git command:
 12. $ git remote add origin git@github.com:Luke7810/learngit.git // 将本地仓库添加到github上
 13. git push -u origin master //将本地仓库第一次推送到远程
 14. git push origin master  //以后再次推送的命令，去掉-u
+15. git clone git@github.com:Luke7810/gitskills.git  //将远程仓库克隆到本地
