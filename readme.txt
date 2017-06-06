@@ -14,4 +14,6 @@ git command:
 9. git checkout -- filename //将工作区的内容撤销
 10. git reset HEAD filename //将暂存区的内容撤回到工作区
 11. git rm filename //从版本库中删除文件
-12.
+12. $ git remote add origin git@github.com:Luke7810/learngit.git // 将本地仓库添加到github上
+13. git push -u origin master //将本地仓库第一次推送到远程
+14. git push origin master  //以后再次推送的命令，去掉-u
