@@ -26,3 +26,7 @@ git command:
 21. git branch -d <dev>  //删除分支
 22. git log --graph --pretty=oneline --abbrev-commit  //以图形的方式显示分支的状态
 ========Luke dev Update======
+
+========Luke dev add for release 2==========
+
+=======Bob dev Add for release 2========
