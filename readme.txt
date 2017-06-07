@@ -24,4 +24,4 @@ git command:
 19. git branch  //查看分支的情况
 20. git merge <dev>  //合并dev分支到当前分支
 21. git branch -d <dev>  //删除分支
-22. master add
+22. dev branch
