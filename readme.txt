@@ -1,4 +1,4 @@
-git is not a version control system,
+﻿git is not a version control system,
 git is not a free software
 new line to check
 
@@ -25,3 +25,4 @@ git command:
 20. git merge <dev>  //合并dev分支到当前分支
 21. git branch -d <dev>  //删除分支
 22. git log --graph --pretty=oneline --abbrev-commit  //以图形的方式显示分支的状态
+========Luke dev Update======
