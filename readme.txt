@@ -2,6 +2,14 @@
 git is not a free software
 new line to check
 
+======================================================
+给自己创建私钥，并将其关联到Github
+1. 使用ssh-keygen -t rsa -C "youremail@example.com" 创建自己的私钥
+2. 在自己的根目录下的.ssh文件夹下会产生id_rsa和id_rsa.pub两个文件， id_rsa是私钥
+3. 登陆GitHub，打开“Account settings”，“SSH Keys”页面
+4. 点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容
+
+======================================================
 git command:
 1. git add <filename> //将文件添加到git
 2. git commit -m "some logs"  //进行git提交操作，同时提交版本信息
@@ -14,7 +22,7 @@ git command:
 9. git checkout -- <filename> //将工作区的内容撤销
 10. git reset HEAD <filename> //将暂存区的内容撤回到工作区
 11. git rm <filename> //从版本库中删除文件
-12. $ git remote add origin git@github.com:Luke7810/learngit.git // 将本地仓库添加到github上
+12. git remote add origin git@github.com:Luke7810/learngit.git // 将本地仓库添加到github上
 13. git push -u origin <master> //将本地仓库第一次推送到远程
 14. git push origin <master>  //以后再次推送的命令，去掉-u
 15. git clone git@github.com:Luke7810/gitskills.git  //将远程仓库克隆到本地
@@ -70,4 +78,31 @@ git command:
 32.28 这时就完成了这次release操作
 
 32.29 完成release操作后，所有开发人员进行master分支和dev分支的同步   (切换分支，git pull)
+===================================================================
+
+33. git tag <name>  给某个分支加上一个tag
+34. git tag <name> <commit id>  给指定的commit id的分支加上tag
+35. git tag 列出所有打过tag的列表
+36. git show <name> 列出指定tag(如：v1.0)的详细信息
+37. git tag -a <tagname> -m "blablabla..."  设定标签，并增加对这个标签的说明
+38. git tag -d <tagname> 删除一个本地标签
+39. git push origin <tagname>  推送一个本地标签到远程仓库
+40. git push origin --tags  推送所有未推送的本地标签到远程
+41. git push origin :refs/tags/<name>  删除远程标签
+
+42. 忽略特殊文件，Java中的class什么的，一般进行忽略，可以增加一个.gitignore文件，这个文件不用自己写，到https://github.com/github/gitignore去下载就行了
+
+43. 增加别名git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"， 以后使用$ git lg就可以查看所有版本信息了。
+
+=================================================
+44. 搭建Git Server
+
+44.1 在server上安装git：  sudo apt-get install git
+44.2 增加git用户：  sudo adduser git
+44.3 收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个
+44.4 初始化Git仓库，先选定一个目录作为Git仓库，假定是/srv/sample.git，在/srv目录下输入命令， sudo git init --bare sample.git
+44.5 把owner改为git， sudo chown -R git:git sample.git
+44.6 禁用shell登录， 编辑/etc/passwd， 找到类似下面的一行：git:x:1001:1001:,,,:/home/git:/bin/bash 改为 git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
+44.7 现在，可以通过git clone命令克隆远程仓库了，在各自的电脑上运行： git clone git@server:/srv/sample.git
+其实没这么简单，在CentOS 上搭建Git还有一些步骤，在百度上找CentOS 搭建Git Server
 
